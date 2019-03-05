@@ -1,0 +1,434 @@
+@charset "UTF-8";
+/* Scss Document */
+/*-------------------------------
+
+	共通
+
+-------------------------------*/
+/*---------- 変数 ----------*/
+/*---------- 全体共通 ----------*/
+@import url(http://fonts.googleapis.com/earlyaccess/notosansjp.css);
+@import url("https://fonts.googleapis.com/css?family=Source+Serif+Pro");
+*, *::after { box-sizing: border-box; }
+
+body { font-family: 'Noto Sans JP', 游ゴシック体, 'Yu Gothic', YuGothic, 'ヒラギノ角ゴシック Pro', 'Hiragino Kaku Gothic Pro', 'Noto Sans Japanese', メイリオ, Meiryo, Osaka, 'ＭＳ Ｐゴシック', 'MS PGothic', sans-serif; font-weight: 400; color: #ffffff; line-height: 1.5; background: #030311; }
+
+.inner { min-width: 320px; /* 最小幅 320px */ max-width: 1200px; /* 最大幅 1200px */ width: 100%; margin: 0 auto; }
+.inner:after { content: ""; clear: both; display: block; }
+
+img { max-width: 100%; height: auto; }
+
+/*---------- リンク ----------*/
+a { text-decoration: none; color: #ffffff; outline: none; }
+
+/* 黒背景の画像に対して白透過 */
+/* 画像をズーム */
+/*---------- ナビゲーションメニュー ----------*/
+header { width: 100%; height: 60px; position: absolute; top: -100px; margin: 100px auto 0; padding: 13px 0 0; font-size: 87.5%; line-height: 1; background-color: rgba(30, 66, 149, 0.55); z-index: 999; transition: all 0.3s ease; }
+header .inner { position: relative; }
+header .inner .logo { float: left; padding-left: 13px; transition: all 0.3s ease; }
+header .inner .logo a img { width: 102px; }
+header .inner #navToggle { display: none; position: absolute; top: 13px; right: 13px; width: 28px; height: 19px; cursor: pointer; z-index: 101; }
+header .inner #navToggle div { position: relative; }
+header .inner #navToggle div span { display: block; position: absolute; left: 0; width: 100%; height: 3px; background: #002d95; transition: .35s ease-in-out; }
+header .inner #navToggle div span:nth-child(1) { top: 0; }
+header .inner #navToggle div span:nth-child(2) { top: 8px; }
+header .inner #navToggle div span:nth-child(3) { top: 16px; }
+header .inner nav ul { position: absolute; right: 0; bottom: 10px; }
+header .inner nav ul li { float: left; position: relative; transition: all 0.3s ease; }
+header .inner nav ul li a { padding: 0 30px; transition: all 0.3s ease; }
+header .inner nav ul li a img.icoMail { width: 18px; margin-left: 5px; }
+header .inner nav ul li:after { position: absolute; content: ""; display: block; width: 100%; height: 3px; bottom: -5px; transition: all 0.3s ease; }
+header .inner nav ul li:hover:after { background: #ffffff; bottom: -15px; }
+header.fixed { position: fixed; top: 0; padding-top: 10px; margin-top: 0; height: 45px; background-color: rgba(30, 66, 149, 0.9); box-shadow: 0px 0px 2px 2px rgba(100, 100, 100, 0.5); transition: top 0.65s ease-in; }
+header.fixed .inner .logo { padding-left: 10px; }
+header.fixed .inner .logo img { width: 73px; }
+header.fixed .inner nav ul { bottom: 7px; }
+header.fixed .inner nav ul li a { padding: 0 20px; font-size: 87.5%; }
+header.fixed .inner nav ul li:after { bottom: -5px; }
+header.fixed .inner nav ul li:hover:after { background: #ffffff; bottom: -15px; }
+
+/*---------- ナビゲーションメニュー：SP ----------*/
+@media screen and (max-width: 768px) { header { position: fixed; top: 0; height: 0; margin-top: 0; padding: 0; }
+  header .inner #mobileHead { position: relative; width: 100%; height: 45px; background: rgba(255, 255, 255, 0.9); box-shadow: 0px 0px 2px 2px rgba(100, 100, 100, 0.5); z-index: 999; }
+  header .inner #mobileHead .logo { position: absolute; left: 8px; top: 8px; padding-left: 0px; }
+  header .inner #mobileHead .logo img { width: 87px; }
+  header .inner #mobileHead #navToggle { display: block; }
+  header .inner nav { position: absolute; top: -500px; width: 100%; padding: 10px 0; background: #002d95; text-align: center; transition: .5s ease-in-out; }
+  header .inner nav ul { position: static; right: 0; bottom: 0; }
+  header .inner nav ul li { float: none; position: static; }
+  header .inner nav ul li a { padding: 0 20px; width: 100%; display: block; color: #ffffff; padding: 18px 0; }
+  header .inner nav ul li:after { display: none; }
+  header.fixed { padding-top: 0; background: transparent; box-shadow: none; }
+  header.fixed .inner #mobileHead .logo { position: absolute; left: 8px; top: 8px; padding-left: 0px; }
+  header.fixed .inner nav ul li a { padding: 0 15px; width: 100%; display: block; color: #ffffff; padding: 18px 0; }
+  header.open .inner #navToggle div span:nth-child(1) { top: 8px; transform: rotate(315deg); }
+  header.open .inner #navToggle div span:nth-child(2) { width: 0; left: 50%; }
+  header.open .inner #navToggle div span:nth-child(3) { top: 8px; transform: rotate(-315deg); }
+  header.open .inner nav { transform: translateY(545px); } }
+/*-------------------------------
+
+	メインビジュアル（TOP）
+
+-------------------------------*/
+#top .visualWrap { position: relative; }
+#top .visualWrap .nextBtn { position: absolute; left: 50%; bottom: 0; width: 88px; margin-left: -44px; text-align: center; background: rgba(0, 45, 149, 0.75); }
+#top .visualWrap .nextBtn img { width: 20px; margin: 10px 0; }
+#top .visualWrap .nextBtn p { color: #ffffff; margin: 0 15px 10px; }
+
+.bgSlider { width: 100%; height: 100vh; background-position: center center; background-size: cover; display: flex; align-items: center; justify-content: center; }
+
+.bgSlider__title { width: 100%; background-color: rgba(0, 45, 149, 0.75); color: #ffffff; font-size: 48px; line-height: 1.5; font-weight: bold; text-align: center; padding: 30px 0 50px 0; }
+.bgSlider__title img { padding: 0 5px; }
+.bgSlider__title .visualSubTitle { font-weight: 800; font-size: 30px; }
+.bgSlider__title .visualPre { font-size: 15px; margin-right: 15px; }
+
+@media screen and (max-width: 768px) { .bgSlider__title .visualSubTitle { font-size: 26px; } }
+/*-------------------------------
+
+	サブビジュアル（下層）
+
+-------------------------------*/
+.visualimg, #about .visualWrap, #program .visualWrap, #seminar .visualWrap { height: 400px; overflow: hidden; display: flex; align-items: center; justify-content: center; }
+.visualimg h2, #about .visualWrap h2, #program .visualWrap h2, #seminar .visualWrap h2 { font-size: 287.5%; font-weight: 400; font-family: "Times New Roman", Times, "serif"; }
+
+#about .visualWrap { background: url(../img/bg_about.jpg) center center no-repeat #002d95; }
+
+#program .visualWrap { background: url(../img/bg_program.jpg) center center no-repeat #002d95; }
+
+#seminar .visualWrap { background: url(../img/bg_seminar.jpg) center center no-repeat #002d95; }
+
+/*-------------------------------
+
+	インフォメーション
+
+-------------------------------*/
+.information { background: #ffffff; }
+.information .inner { display: flex; flex-flow: row; align-items: center; max-width: 1000px; margin: 0 auto; padding: 20px; color: #030311; }
+.information .inner:before { content: ""; display: block; width: 0; min-height: 100px; }
+.information .inner .infoTitle { width: 20%; }
+.information .inner .infoTitle h2 { padding-right: 4em; white-space: nowrap; }
+.information .inner dl { padding-left: 4em; border-left: 1px solid #030311; line-height: 1.8; }
+.information .inner dl dt { clear: both; float: left; width: 7em; }
+.information .inner dl dd { margin-left: 7em; }
+.information .inner dl dd a { position: relative; display: inline-block; text-decoration: none; color: #030311; }
+.information .inner dl dd a::after { position: absolute; bottom: -1px; left: 0; content: ''; width: 100%; height: 1px; background: #030311; transform: scale(0, 1); transform-origin: left top; transition: transform .3s; }
+.information .inner dl dd a:hover::after { transform: scale(1, 1); }
+
+@media screen and (max-width: 768px) { .information .inner { width: 100%; flex-flow: column; }
+  .information .inner:before { min-height: 0; }
+  .information .inner .infoTitle { width: 100%; text-align: center; }
+  .information .inner .infoTitle h2 { padding-right: 0; padding-bottom: 1em; }
+  .information .inner dl { padding-left: 0; padding-right: 0; border-left: none; }
+  .information .inner dl dt { float: none; }
+  .information .inner dl dd { margin-left: 0; margin-bottom: 1em; } }
+/*-------------------------------
+
+	バナーメニュー
+
+-------------------------------*/
+.bnrMenu { /*.inner {
+	max-width: 100%;
+}*/ }
+.bnrMenu ul { padding-top: 100px; }
+.bnrMenu ul li { float: left; width: 50%; position: relative; }
+.bnrMenu ul li a { background: #ffffff; display: block; }
+.bnrMenu ul li a img { transition: opacity 0.3s ease; }
+.bnrMenu ul li a:hover img { opacity: 0.6; }
+.bnrMenu ul li a figure { overflow: hidden; }
+.bnrMenu ul li a figure img { transform: scale(1); transition: .3s ease-in-out; }
+.bnrMenu ul li a:hover figure img { transform: scale(1.2); }
+.bnrMenu ul li a .detail { position: absolute; top: 35%; left: 0; right: 0; margin: auto; text-align: center; }
+.bnrMenu ul li a .detail h2 { color: #ffffff; font-size: 187.5%; font-weight: 600; margin-bottom: 20px; }
+.bnrMenu ul li a .detail h2 img { width: 330px; }
+
+@media screen and (max-width: 768px) { .bnrMenu ul li { float: none; width: 100%; overflow: hidden; height: 160px; }
+  .bnrMenu ul li a img { width: 125%; /*position: absolute;
+top: 0;
+left: 0;
+right: 0;
+border: 0;*/ }
+  .bnrMenu ul li a .detail { top: 10%; }
+  .bnrMenu ul li a .detail h2 { font-size: 250%; margin-bottom: 10px; }
+  .bnrMenu ul li a .detail .readBtn, .bnrMenu ul li a .detail .readBtnWt, .bnrMenu ul li a .detail .readBtnBk { padding: 8px 45px; } }
+/*-------------------------------
+
+	READ MOREボタン（no link）
+
+-------------------------------*/
+.readBtn, .readBtnWt, .readBtnBk { position: relative; display: inline-block; font-family: 'Source Serif Pro', serif; padding: 9px 70px; }
+.readBtn i, .readBtnWt i, .readBtnBk i { position: absolute; top: 0; bottom: 0; right: 15px; height: 1em; margin: auto 0; }
+
+.readBtnWt { color: #ffffff; border: 1px solid #ffffff; }
+.readBtnWt i { color: #ffffff; }
+
+.readBtnBk { color: #030311; border: 1px solid #030311; }
+.readBtnBk i { color: #030311; }
+
+/*-------------------------------
+
+	コンテンツタイトル・説明
+
+-------------------------------*/
+.title { text-align: center; margin-bottom: 50px; }
+.title .contentTitle { font-size: 150%; font-weight: 400; padding: 80px 0 20px; }
+.title .titleAlph { display: inline-block; font-family: 'Source Serif Pro', serif; padding-bottom: 10px; border-bottom: 1px solid #ffffff; }
+
+.explain { max-width: 800px; margin: 0 auto 50px; }
+
+@media screen and (max-width: 768px) { .explain { padding: 0 10px; } }
+/* Aboutページ：KAIKAイノベーションラボとは */
+.aboutInv .title .contentTitle img { width: 480px; }
+.aboutInv .aboutExplan p { text-align: center; }
+.aboutInv .aboutExplan p.exp1 { font-size: 125%; margin-bottom: 20px; }
+.aboutInv .aboutExplan p.exp2 { margin-bottom: 35px; }
+.aboutInv .aboutExplan p.exp2 span { font-size: 75%; margin-right: 10px; }
+.aboutInv .aboutExplan p.exp2 img { vertical-align: middle; }
+.aboutInv .aboutExplan p.exp3 { font-size: 137.5%; margin-bottom: 70px; }
+
+@media screen and (max-width: 768px) { .aboutInv .inner { padding: 0 5px; } }
+/*-------------------------------
+
+	バナーコンテンツ
+
+-------------------------------*/
+/*---------- バナーコンテンツ共通構造 ----------*/
+.bnrContentsInner, .bnrContents .inner, .bnrContents2 .inner, .bnrContents3 .inner { max-width: 100%; display: flex; flex-wrap: wrap; }
+.bnrContentsInner .bnrCtImg, .bnrContents .inner .bnrCtImg, .bnrContents2 .inner .bnrCtImg, .bnrContents3 .inner .bnrCtImg { flex: 0 0 50%; width: 50%; background-size: cover; overflow: hidden; position: relative; }
+.bnrContentsInner .bnrCtImg:after, .bnrContents .inner .bnrCtImg:after, .bnrContents2 .inner .bnrCtImg:after, .bnrContents3 .inner .bnrCtImg:after { content: ""; position: absolute; width: 100%; height: 100%; top: 0; background-color: #ffffff; }
+.bnrContentsInner .bnrCtTxt, .bnrContents .inner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { flex-basis: 0; flex-grow: 1; max-width: 100%; background-color: #1f87dd; padding: 130px 140px; text-align: center; }
+.bnrContentsInner .bnrCtTxt h2, .bnrContents .inner .bnrCtTxt h2, .bnrContents2 .inner .bnrCtTxt h2, .bnrContents3 .inner .bnrCtTxt h2 { text-align: center; margin-bottom: 20px; }
+.bnrContentsInner .bnrCtTxt .bnrCtTxtInr, .bnrContents .inner .bnrCtTxt .bnrCtTxtInr, .bnrContents2 .inner .bnrCtTxt .bnrCtTxtInr, .bnrContents3 .inner .bnrCtTxt .bnrCtTxtInr { text-align: left; line-height: 2.2em; margin-bottom: 35px; }
+.bnrContentsInner .bnrCtTxt a .readBtnWt, .bnrContents .inner .bnrCtTxt a .readBtnWt, .bnrContents2 .inner .bnrCtTxt a .readBtnWt, .bnrContents3 .inner .bnrCtTxt a .readBtnWt { transition: all 0.3s ease; }
+.bnrContentsInner .bnrCtTxt a:hover .readBtnWt, .bnrContents .inner .bnrCtTxt a:hover .readBtnWt, .bnrContents2 .inner .bnrCtTxt a:hover .readBtnWt, .bnrContents3 .inner .bnrCtTxt a:hover .readBtnWt { color: #1f87dd; background: #ffffff; }
+.bnrContentsInner .bnrCtTxt a:hover .readBtnWt i, .bnrContents .inner .bnrCtTxt a:hover .readBtnWt i, .bnrContents2 .inner .bnrCtTxt a:hover .readBtnWt i, .bnrContents3 .inner .bnrCtTxt a:hover .readBtnWt i { color: #1f87dd; }
+
+@media screen and (max-width: 1400px) { .bnrContentsInner .bnrCtTxt, .bnrContents .inner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { padding: 100px 120px; } }
+@media screen and (max-width: 1200px) { .bnrContentsInner .bnrCtTxt, .bnrContents .inner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { padding: 80px 80px; } }
+@media screen and (max-width: 992px) { .bnrContentsInner .bnrCtTxt, .bnrContents .inner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { padding: 50px 60px; } }
+@media screen and (max-width: 768px) { .bnrContentsInner .bnrCtTxt, .bnrContents .inner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { padding: 30px 20px; } }
+/* SP画面幅 */
+/*---------- バナーコンテンツ共通構造 ここまで----------*/
+/* 説明会バナー */
+.bnrContents .inner .bnrCtImg { background: url(../img/seminar.jpg) 50% 60% no-repeat #002d95; background-size: cover; }
+.bnrContents .inner .bnrCtImg:after { right: -100%; }
+
+/* About: 日本が新たな価値を生み出すラボ */
+.bnrContents2 { padding-top: 0; margin-bottom: 100px; }
+.bnrContents2 .inner .bnrCtImg { order: 2; background: url(../img/about_lab.jpg) center center no-repeat #002d95; }
+.bnrContents2 .inner .bnrCtImg:after { left: -100%; }
+.bnrContents2 .inner .bnrCtTxt { order: 1; padding: 100px 90px; background-color: #ffffff; color: #030311; }
+.bnrContents2 .inner .bnrCtTxt h2 { font-weight: 400; }
+.bnrContents2 .inner .bnrCtTxt h2:after { content: ""; display: block; width: 100px; height: 1px; background-color: #030311; margin: 30px auto 0; }
+.bnrContents2 .inner .bnrCtTxt span.bnrSubTitle { display: block; font-size: 112.5%; margin-bottom: 10px; }
+.bnrContents2 .inner .bnrCtTxt span.bnrTitle { font-size: 137.5%; }
+.bnrContents2 .inner .bnrCtTxt .bnrCtTxtInr { margin-bottom: 0; line-height: 1.8em; font-size: 87.5%; }
+
+/* About: KAIKAの理念に基づいたプログラム */
+.bnrContents3 { margin-bottom: 60px; }
+.bnrContents3 .inner .bnrCtImg { background: url(../img/about_kaika.jpg) 50% 60% no-repeat #002d95; background-size: cover; }
+.bnrContents3 .inner .bnrCtImg:after { right: -100%; }
+.bnrContents3 .inner .bnrCtTxt { padding: 100px 90px; }
+.bnrContents3 .inner .bnrCtTxt h2 { font-weight: 400; }
+.bnrContents3 .inner .bnrCtTxt h2:after { content: ""; display: block; width: 100px; height: 1px; background-color: #ffffff; margin: 30px auto 0; }
+.bnrContents3 .inner .bnrCtTxt span.bnrTitle { font-size: 137.5%; }
+.bnrContents3 .inner .bnrCtTxt span.bnrTitle a { position: relative; display: inline-block; text-decoration: none; font-style: italic; }
+.bnrContents3 .inner .bnrCtTxt span.bnrTitle a::after { position: absolute; bottom: -1px; left: 0; content: ''; width: 100%; height: 1px; background: #030311; transform: scale(0, 1); transform-origin: left top; transition: transform .3s; }
+.bnrContents3 .inner .bnrCtTxt span.bnrTitle a:hover::after { transform: scale(1, 1); }
+.bnrContents3 .inner .bnrCtTxt .bnrCtTxtInr { margin-bottom: 0; line-height: 1.8em; font-size: 87.5%; }
+
+/* About: PC画面幅 */
+@media screen and (max-width: 1400px) { .bnrContents2 .bnrContentsInner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .bnrContentsInner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { padding: 70px; } }
+@media screen and (max-width: 1200px) { .bnrContents2 .bnrContentsInner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .bnrContentsInner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { padding: 60px; } }
+@media screen and (max-width: 768px) { .bnrContents2 .bnrContentsInner .bnrCtTxt, .bnrContents2 .inner .bnrCtTxt, .bnrContents3 .bnrContentsInner .bnrCtTxt, .bnrContents3 .inner .bnrCtTxt { padding: 30px; } }
+/* SP画面幅 */
+@media screen and (max-width: 768px) { /* 説明会バナー */
+  .bnrContents .inner .bnrCtImg { flex: 0 0 100%; width: 100%; height: 250px; }
+  /* About: 日本が新たな価値を生み出すラボ */
+  .bnrContents2 .inner .bnrCtImg { flex: 0 0 100%; width: 100%; height: 250px; order: 1; }
+  .bnrContents2 .inner .bnrCtTxt { order: 2; }
+  /* About: KAIKAの理念に基づいたプログラム */
+  .bnrContents3 .inner .bnrCtImg { flex: 0 0 100%; width: 100%; height: 250px; } }
+/*-------------------------------
+
+	企画協力団体
+
+-------------------------------*/
+.eticDesc { margin-bottom: 100px; }
+.eticDesc .inner { max-width: 100%; display: flex; flex-flow: row nowrap; }
+.eticDesc .inner .eticDesc_box { width: 50%; padding: 70px; }
+.eticDesc .inner .eticDesc_box.left { background-color: #1f87dd; text-align: center; }
+.eticDesc .inner .eticDesc_box.left .eticDesc_title { font-size: 137.5%; }
+.eticDesc .inner .eticDesc_box.left .eticDesc_title img { width: 120px; padding: 10px 0 30px 0; }
+.eticDesc .inner .eticDesc_box.left dl { font-size: 87.5%; display: inline-block; text-align: left; }
+.eticDesc .inner .eticDesc_box.left dl dt { clear: both; float: left; width: 8em; }
+.eticDesc .inner .eticDesc_box.left dl dd { padding-left: 8em; padding-bottom: 5px; margin-bottom: 10px; border-bottom: 1px solid #ffffff; }
+.eticDesc .inner .eticDesc_box.left dl dd ul.eticDesc_business { list-style: disc; }
+.eticDesc .inner .eticDesc_box.left dl dd ul.eticDesc_business li { margin-left: 16px; }
+.eticDesc .inner .eticDesc_box.left dl dd a { transition: opacity 0.3s ease; }
+.eticDesc .inner .eticDesc_box.left dl dd a:hover { opacity: 0.5; }
+.eticDesc .inner .eticDesc_box.right { color: #030311; background-color: #ffffff; line-height: 1.8; }
+
+@media screen and (max-width: 768px) { .eticDesc .inner { flex-flow: column; }
+  .eticDesc .inner .eticDesc_box { width: 100%; padding: 30px; } }
+/*-------------------------------
+
+	お問い合わせ先
+
+-------------------------------*/
+.contact { text-align: center; margin-top: 100px; }
+.contact .cntTxt { font-size: 125%; margin-bottom: 50px; }
+.contact .cntAddress { width: 100%; background: #1f87dd; padding: 50px 0; }
+.contact .cntAddress .inner { display: flex; flex-flow: row; align-items: center; justify-content: center; }
+.contact .cntAddress .inner p { font-size: 125%; padding-right: 50px; }
+.contact .cntAddress .inner ul { text-align: left; border-left: 1px solid #ffffff; padding-left: 50px; }
+.contact .cntAddress .inner ul li.adrNum { font-size: 137.5%; line-height: 1.8; }
+.contact .cntAddress .inner ul li.adrNum a[href^="mailto:"] { position: relative; display: inline-block; text-decoration: none; }
+.contact .cntAddress .inner ul li.adrNum a[href^="mailto:"]::after { position: absolute; bottom: -1px; left: 0; content: ''; width: 100%; height: 1px; background: #030311; transform: scale(0, 1); transform-origin: left top; transition: transform .3s; }
+.contact .cntAddress .inner ul li.adrNum a[href^="mailto:"]:hover::after { transform: scale(1, 1); }
+.contact .cntAddress .inner ul li.adrNum a[href^="mailto:"]::after { background: #ffffff; }
+.contact .cntAddress .inner ul li.adrNum img.icoMail { vertical-align: middle; margin-left: 10px; }
+.contact .cntAddress .inner ul li.adrPost { font-size: 87.5%; }
+.contact .cntAddress .inner ul li.adrNum + li.adrPost { padding-top: 1em; }
+.contact .cntAddress .inner .icoMail { width: 40px; }
+
+/* PC画面では電話番号リンク無効 */
+@media screen and (min-width: 768px) { a[href^="tel:"] { pointer-events: none; } }
+@media screen and (max-width: 768px) { .contact .cntAddress .inner { flex-flow: column; }
+  .contact .cntAddress .inner p { padding-right: 0; padding-bottom: 20px; }
+  .contact .cntAddress .inner ul { border-left: none; padding-left: 0; } }
+/*-------------------------------
+
+	フッター
+
+-------------------------------*/
+footer { background: #ffffff; color: #030311; text-align: center; padding: 30px 30px 0; }
+footer a.ftLogo { transition: opacity 0.3s ease; }
+footer a.ftLogo:hover { opacity: 0.5; }
+footer a.ftLogo img { width: 127px; margin-bottom: 25px; }
+footer ul { font-size: 87.5%; margin-bottom: 20px; }
+footer ul li { display: inline; }
+footer ul li a { color: #030311; position: relative; display: inline-block; text-decoration: none; }
+footer ul li a::after { position: absolute; bottom: -1px; left: 0; content: ''; width: 100%; height: 1px; background: #030311; transform: scale(0, 1); transform-origin: left top; transition: transform .3s; }
+footer ul li a:hover::after { transform: scale(1, 1); }
+footer ul li + li:before { content: "　|　"; }
+footer small { font-size: 75%; display: block; margin-bottom: 40px; }
+footer a.scrolltop { width: 56px; background: #1f87dd; display: inline-block; padding: 14px 0; transition: opacity 0.3s ease; }
+footer a.scrolltop:hover { opacity: 0.5; }
+footer a.scrolltop img { width: 28px; vertical-align: middle; }
+
+/*-------------------------------
+
+	About
+
+-------------------------------*/
+.aboutInvBnr .jmaEtic { text-align: center; }
+.aboutInvBnr .jmaEtic img { width: 280px; }
+
+/*-------------------------------
+
+	Program
+
+-------------------------------*/
+/* プログラムの特長 */
+.prgfeature { background-color: #002d95; margin-top: 90px; }
+.prgfeature .explain.prgfeature_exp { margin-bottom: 0; }
+.prgfeature .explain.prgfeature_exp ol { padding-top: 20px; }
+.prgfeature .explain.prgfeature_exp ol li { padding-bottom: 10px; }
+.prgfeature .explain.prgfeature_exp ol li span { display: inline-block; width: 40px; height: 40px; padding-top: 8px; margin-right: 8px; background-color: #ffffff; color: #002d95; border-radius: 50%; text-align: center; }
+.prgfeature .purposeImg { text-align: center; }
+.prgfeature .purposeImg img { width: 500px; }
+.prgfeature ul.feature { display: flex; width: 100%; flex-flow: row; }
+.prgfeature ul.feature li { position: relative; background: rgba(255, 255, 255, 0.85); width: 33.3%; }
+.prgfeature ul.feature li + li { border-left: 2px solid #ffffff; }
+.prgfeature ul.feature li .featureImg { text-align: center; position: relative; margin: 0; overflow: hidden; width: 100%; height: 0; padding: 50% 0 0; visibility: visible; }
+.prgfeature ul.feature li .featureImg img { vertical-align: top; position: absolute; display: block; width: auto; max-width: none; height: 100%; top: 0; left: 50%; transform: translate3d(-50%, 0, 0); }
+.prgfeature ul.feature li .featureTxt { border-top: 3px solid #002d95; color: #030311; }
+.prgfeature ul.feature li .featureTxt h3 { text-align: center; font-weight: 400; margin-top: 10px; margin-bottom: 30px; }
+.prgfeature ul.feature li .featureTxt h3 .featureNum { display: block; font-family: "Times New Roman", Times, "serif"; font-size: 250%; font-style: italic; }
+.prgfeature ul.feature li .featureTxt h3 .featureTitle { font-size: 150%; }
+.prgfeature ul.feature li .featureTxt p { padding: 0 50px 50px; font-size: 87.5%; line-height: 1.8; }
+
+@media screen and (max-width: 1000px) { .prgfeature ul.feature li .featureTxt h3 { margin-bottom: 15px; }
+  .prgfeature ul.feature li .featureTxt p { padding: 0 20px 20px; } }
+@media screen and (max-width: 768px) { .prgfeature ul.feature { flex-flow: column; }
+  .prgfeature ul.feature li { width: 100%; }
+  .prgfeature ul.feature li + li { border-left: none; } }
+/* お奨め */
+.prgExplain { font-size: 150%; text-align: center; margin-bottom: 30px; }
+
+.prgTarget { color: #030311; background: url(../img/program_bg.jpg) center center no-repeat #ffffff; margin-bottom: 50px; }
+.prgTarget .inner { text-align: center; padding: 40px 0; }
+.prgTarget .inner dl { display: inline-block; text-align: left; }
+.prgTarget .inner dl dt { color: #002d95; font-size: 137.5%; padding-bottom: 15px; margin-left: -75px; }
+.prgTarget .inner dl dt span.line { margin-right: 10px; }
+.prgTarget .inner dl dd { padding-bottom: 30px; }
+.prgTarget .inner dl dd ul { list-style: disc; margin-left: 20px; }
+.prgTarget .inner dl dd ul li { line-height: 1.8; }
+.prgTarget .inner dl dd:last-child { padding-bottom: 0; }
+
+@media screen and (max-width: 768px) { .prgTarget .inner { padding: 40px 5px; }
+  .prgTarget .inner dl dt { margin-left: 0; }
+  .prgTarget .inner dl dt span.line { display: none; } }
+/* 矢印下 */
+.prgArwDown { text-align: center; }
+.prgArwDown img { width: 90px; }
+
+/* プログラム概要 */
+.prgStr .title .contentTitle { padding-top: 40px; }
+.prgStr .prgStr_exp { margin-bottom: 30px; }
+.prgStr .prgStr_exp .prgStr_expDate { font-size: 125%; margin-bottom: 10px; }
+.prgStr .prgStr_exp__s { max-width: 800px; font-size: 87.5%; margin: 0 auto; margin-top: 8px; }
+.prgStr__fig, .prgStr__fig-2 { background-color: white; max-width: 800px; padding: 20px; margin: 0 auto; text-align: center; }
+.prgStr__fig-2 { margin-bottom: 50px; }
+
+/* プログラム構成 */
+ol.prgFlow { max-width: 900px; margin: 0 auto; }
+ol.prgFlow > li { height: 100px; background-color: #1f87dd; position: relative; margin-bottom: 65px; display: flex; flex-flow: row; align-items: center; }
+ol.prgFlow > li .flowNum { display: inline-block; width: 55px; height: 55px; border-radius: 50%; color: #1f87dd; font-size: 187.5%; background-color: #ffffff; text-align: center; line-height: 55px; margin: 0 20px; }
+ol.prgFlow > li h3 { width: 20%; font-size: 112.5%; font-weight: 500; }
+ol.prgFlow > li ul.flowList { display: flex; flex-flow: column wrap; width: 50%; list-style: disc; height: 100px; }
+ol.prgFlow > li ul.flowList li { height: 50px; line-height: 50px; font-size: 87.5%; margin-left: 16px; }
+ol.prgFlow > li + li:before { width: 70px; content: url(../img/arrow_triangle.svg); position: absolute; top: -45px; left: calc(50% - 35px); }
+
+@media screen and (max-width: 768px) { ol.prgFlow > li { flex-flow: column; padding: 10px 0; height: auto; }
+  ol.prgFlow > li .flowNum { margin-bottom: 5px; }
+  ol.prgFlow > li img { display: none; }
+  ol.prgFlow > li h3 { width: 100%; text-align: center; margin-bottom: 10px; }
+  ol.prgFlow > li ul.flowList { flex-flow: column nowrap; width: auto; }
+  ol.prgFlow > li ul.flowList li { line-height: 1.5; } }
+/*-------------------------------
+
+	SEMINAR
+
+-------------------------------*/
+.smrBox { background-color: #002d95; }
+.smrBox + .smrBox { margin-top: 60px; }
+.smrBox h3 { font-size: 150%; color: #ffffff; font-weight: 400; text-align: center; padding: 35px 0; }
+.smrBox .smrContent { background-color: #ffffff; color: #030311; padding: 70px 0 40px; }
+.smrBox .smrContent .inner { max-width: 768px; }
+.smrBox .smrContent .inner .smallTxt { text-align: right; font-size: 87.5%; }
+.smrBox .smrContent .inner dl.smrTxt { line-height: 1.8; }
+.smrBox .smrContent .inner dl.smrTxt dt { clear: both; float: left; }
+.smrBox .smrContent .inner dl.smrTxt dd { padding-left: 8em; padding-bottom: 10px; margin-bottom: 10px; border-bottom: 1px solid #cccccc; }
+.smrBox .smrContent .inner dl.smrTxt dd .smrList { list-style: disc; margin-left: 16px; }
+.smrBox .smrContent .inner dl.smrTxt dd .smrList img { padding-left: 10px; }
+.smrBox .smrContent .inner dl.smrTxt dd .smrList img.smrLogoEtic { width: 80px; height: 28.4px; }
+.smrBox .smrContent .inner dl.smrTxt dd .smrList img.smrLogoJma { width: 70px; }
+.smrBox .smrContent .inner dl.smrTxt dd .smrList__twoName { display: flex; align-items: center; }
+.smrBox .smrContent .inner dl.smrTxt dd .smrList__twoName ul { margin-right: 5px; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMap a { color: #030311; transition: opacity 0.3s ease; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMap a:hover { opacity: 0.5; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMailBtn0 a { color: #030311; transition: opacity 0.3s ease; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMailBtn0 a:hover { opacity: 0.5; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMailBtn a { display: block; position: relative; width: 210px; height: 50px; background-color: #1195a9; line-height: 50px; text-align: center; transition: opacity 0.3s ease; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMailBtn a:hover { opacity: 0.5; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMailBtn a span { margin-right: 10px; font-size: 112.5%; }
+.smrBox .smrContent .inner dl.smrTxt dd.smrMailBtn a img { width: 20px; position: absolute; top: 0; bottom: 0; margin: auto 0; }
+
+@media screen and (max-width: 768px) { .smrBox .smrContent .inner dl.smrTxt { padding: 0 1em; }
+  .smrBox .smrContent .inner dl.smrTxt dt { float: none; }
+  .smrBox .smrContent .inner dl.smrTxt dd { padding-left: 0; } }
+.smrCausion { text-align: center; font-size: 87.5%; margin-top: 40px; }
+
+.omimai { text-align: center; padding-top: 30px; }
